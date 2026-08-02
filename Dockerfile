@@ -25,7 +25,7 @@ COPY web /app/web
 COPY migrations /app/migrations
 COPY fixtures /app/fixtures
 RUN mkdir -p /app/data /app/web/static/uploads
-ENV ADDR=:8080 \
+ENV ADDR=:3000 \
     DATA_DIR=/app/data \
     DB_PATH=/app/data/app.db \
     TEMPLATES_DIR=/app/web/templates \
@@ -33,6 +33,6 @@ ENV ADDR=:8080 \
     MIGRATIONS_DIR=/app/migrations \
     FIXTURES_PATH=/app/fixtures/seed.json \
     SEED_ON_EMPTY=true
-EXPOSE 8080
+EXPOSE 3000
 VOLUME ["/app/data"]
 CMD ["/app/server"]

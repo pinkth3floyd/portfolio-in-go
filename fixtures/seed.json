@@ -1,0 +1,501 @@
+{
+  "settings": {
+    "site_name": "Prakash Niraula",
+    "site_url": "https://prakashniraula.info",
+    "email": "pinkth3floyd@gmail.com",
+    "phone": "+9779869804695",
+    "location": "Otori, Sakai, Osaka",
+    "hours": "Mon-Fri: 09:00 - 18:00",
+    "address": "Otori, Sakai City, Osaka, Japan",
+    "github_url": "https://github.com/PrakashNiraula",
+    "twitter_url": "https://twitter.com/pinkth3floyd",
+    "linkedin_url": "https://www.linkedin.com/in/prakash-niraula-6934082b1/",
+    "twitter_handle": "@pinkth3floyd",
+    "ga_id": "G-4BVDYHW7ET",
+    "ahrefs_key": "6GpTE/zpkmWdINPKdRcYzg",
+    "tagline": "Forging the Future — One Line of Code at a Time",
+    "og_image": "/static/assets/cropped.png",
+    "about_extra_1": "Today I work as a System Engineer at AI Kensetsu Co., Ltd in Sakai, Osaka — building IT infrastructure and software solutions. I also bring 4+ years of full-stack product experience shipping Web Converter Tools, GOLO CRM, Raid Media, and client apps with Laravel, Next.js, Flutter, Go, and cloud platforms.",
+    "about_extra_2": "Based in Otori, Sakai City, Japan. Previously built products and client systems from Kathmandu for teams in Nepal, Australia, and beyond — and I still collaborate internationally.",
+    "projects_intro": "Case studies from Prakash Niraula — SaaS products, CRMs, news portals, mobile apps, and client systems. Built across Nepal and Japan for teams worldwide.",
+    "job_title": "System Engineer",
+    "company": "AI Kensetsu Co., Ltd"
+  },
+  "pages": [
+    {
+      "slug": "home",
+      "title": "Prakash Niraula | System Engineer in Sakai, Japan",
+      "meta_description": "Prakash Niraula — System Engineer at AI Kensetsu Co., Ltd in Sakai, Osaka. Full-stack web & mobile experience. Builder of WebConverterTools, GOLO CRM, and Raid Media.",
+      "meta_keywords": "Prakash Niraula, system engineer Sakai, AI Kensetsu, Osaka developer, full stack developer Japan, Web Converter Tools, GOLO CRM, infrastructure software",
+      "sections": [
+        {
+          "key": "hero",
+          "title": "PRAKASH NIRAULA",
+          "subtitle": "System Engineer · Sakai, Osaka, Japan",
+          "body": "Building IT infrastructure and software solutions at AI Kensetsu Co., Ltd — with a full-stack background in SaaS, CRM, mobile, and web products."
+        },
+        {
+          "key": "featured",
+          "title": "Featured Projects",
+          "subtitle": "Products and client work you can explore",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About Prakash Niraula | System Engineer in Sakai, Japan",
+      "meta_description": "Background of Prakash Niraula — System Engineer at AI Kensetsu Co., Ltd in Sakai, Osaka. Coventry University graduate with full-stack web/mobile product experience.",
+      "meta_keywords": "Prakash Niraula bio, system engineer Sakai, AI Kensetsu, Osaka Japan, Flutter Laravel Next.js, Coventry University",
+      "sections": [
+        {
+          "key": "intro",
+          "title": "About Me",
+          "subtitle": "",
+          "body": "I'm Prakash Niraula, a System Engineer at AI Kensetsu Co., Ltd in Sakai, Japan. I focus on IT infrastructure and software solutions, backed by years of shipping production web and mobile products — Laravel, Next.js/React, Flutter, Go/HTMX, APIs, and cloud."
+        },
+        {
+          "key": "skills",
+          "title": "Technical Skills",
+          "subtitle": "",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "slug": "projects",
+      "title": "Projects by Prakash Niraula | Web, Mobile & SaaS Portfolio",
+      "meta_description": "Explore projects by Prakash Niraula: Web Converter Tools, GOLO CRM, Raid Media, Foodie Nepal, Everest Travels, and more web/mobile case studies.",
+      "meta_keywords": "Prakash Niraula projects, WebConverterTools, GOLO CRM, Raid Media, portfolio Japan, Flutter apps, Laravel projects",
+      "sections": [
+        {
+          "key": "intro",
+          "title": "My Projects",
+          "subtitle": "A collection of my best work",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "title": "Contact Prakash Niraula | System Engineer in Sakai, Japan",
+      "meta_description": "Contact Prakash Niraula in Sakai, Osaka, Japan for system engineering, web/mobile development, SaaS builds, or collaboration. Email pinkth3floyd@gmail.com.",
+      "meta_keywords": "contact Prakash Niraula, system engineer Sakai, hire developer Osaka Japan, AI Kensetsu, Flutter Laravel developer",
+      "sections": [
+        {
+          "key": "intro",
+          "title": "Get In Touch",
+          "subtitle": "",
+          "body": "Based in Otori, Sakai City, Japan. Open to engineering collaboration, product builds, and consulting — infrastructure, full-stack web/mobile, or SaaS. Tell me about your timeline and goals."
+        }
+      ]
+    },
+    {
+      "slug": "privacy",
+      "title": "Privacy Policy | Prakash Niraula Portfolio",
+      "meta_description": "Privacy policy for prakashniraula.info — how contact form data, analytics, and cookies are handled on this portfolio site.",
+      "meta_keywords": "privacy policy, prakashniraula.info privacy, portfolio data protection",
+      "sections": [
+        {
+          "key": "intro",
+          "title": "Privacy Policy",
+          "subtitle": "",
+          "body": "This privacy policy outlines how your data is collected and used on this website."
+        }
+      ]
+    }
+  ],
+  "skills": [
+    "System Engineering",
+    "IT Infrastructure",
+    "Software Development",
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Node",
+    "Flutter",
+    "Laravel",
+    "Go",
+    "Cloud",
+    "REST API",
+    "Linux",
+    "UI/UX Design"
+  ],
+  "education": [
+    {
+      "degree": "Bachelors in Computing",
+      "school": "Coventry University",
+      "year": "2021",
+      "description": "Studied computing and its implementations in real world"
+    },
+    {
+      "degree": "High School(10+2)",
+      "school": "Golden Gate International College",
+      "year": "2014",
+      "description": "Studied science subjects along with computer."
+    }
+  ],
+  "experiences": [
+    {
+      "role": "System Engineer",
+      "company": "AI Kensetsu Co., Ltd",
+      "period": "May 2026 - Present",
+      "description": "Building IT infrastructure and software solutions in Sakai, Osaka. Focus on reliable systems, internal tooling, and engineering delivery for the organization."
+    },
+    {
+      "role": "Full Stack Next.js Developer",
+      "company": "Zeptosky Private Limited",
+      "period": "2024 - 2026",
+      "description": "Built cutting-edge web applications with React, Next.js, and TypeScript — including CRM and operational products."
+    },
+    {
+      "role": "Mobile Developer",
+      "company": "21st Tech Private Limited",
+      "period": "2022 - 2024",
+      "description": "Developed cross-platform mobile applications using Flutter, Kotlin, and Java."
+    },
+    {
+      "role": "Back End Developer",
+      "company": "21st Tech Private Limited",
+      "period": "2021 - 2022",
+      "description": "Built APIs and backend systems for client websites and products across industries."
+    },
+    {
+      "role": "Front End Developer",
+      "company": "21st Tech Private Limited",
+      "period": "2019 - 2021",
+      "description": "Created responsive, interactive frontends for client websites across various industries."
+    }
+  ],
+  "projects": [
+    {
+      "slug": "web-converter-tools",
+      "title": "Web Converter Tools",
+      "short_description": "Free online PDF, SEO, image, and developer utilities — no signup required.",
+      "full_description": "Web Converter Tools (WebConverterTools.com) is an all-in-one browser toolkit I built for freelancers, marketers, and developers. Convert and merge PDFs, research keywords, compress images, generate meta tags, and run everyday SEO checks without installing desktop software. Stack: Laravel, MySQL, Ghostscript, LibreOffice, Stripe, and Oracle Cloud.",
+      "image_url": "https://webconvertertools.com/storage/uploads/Untitled%20design(3).png",
+      "live_url": "https://webconvertertools.com/",
+      "github_url": "https://webconvertertools.com/",
+      "featured": true,
+      "tags": [
+        "Laravel",
+        "MySQL",
+        "Ghost Script",
+        "LibreOffice",
+        "SMTP",
+        "Stripe",
+        "Oracle Cloud"
+      ],
+      "features": [],
+      "tech_stack": [
+        "Laravel",
+        "MySQL",
+        "SMTP",
+        "Stripe"
+      ]
+    },
+    {
+      "slug": "golo-crm",
+      "title": "GOLO CRM",
+      "short_description": "Modern CRM for rosters, attendance, sites, and office operations — web + mobile.",
+      "full_description": "GOLO CRM (golocrm.com) helps teams track office operations: sites, rosters, attendance with geofencing, logbooks, and notes. Built with Next.js, TypeScript, Tailwind, SQLite/Vercel, Firebase, and Google Maps, plus a Flutter companion app on Google Play.",
+      "image_url": "https://www.golocrm.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoWhite.10a0e67b.png&w=256&q=75",
+      "live_url": "https://golocrm.com",
+      "github_url": "https://golocrm.com",
+      "featured": true,
+      "tags": [
+        "NextJS",
+        "Tailwind",
+        "Typescript",
+        "SQlite",
+        "Vercel",
+        "React",
+        "Google Maps",
+        "Firebase"
+      ],
+      "features": [],
+      "tech_stack": [
+        "NextJS",
+        "Typescript",
+        "SQLite",
+        "Firebase"
+      ]
+    },
+    {
+      "slug": "raid-media",
+      "title": "Raid Media",
+      "short_description": "Kathmandu-based Nepali-language news portal with CMS publishing workflows.",
+      "full_description": "Raid Media (raidmedia.net) is a news portal from Kathmandu, Nepal publishing stories in Nepali. I built the Laravel + MySQL backend with SMTP notifications so editors can manage posts and reach readers reliably across devices.",
+      "image_url": "https://raidmedia.net/uploads/20240610065227-rm-logo-final.png",
+      "live_url": "https://raidmedia.net/",
+      "github_url": "https://raidmedia.net/",
+      "featured": true,
+      "tags": [
+        "Laravel",
+        "MYSQL",
+        "SMTP"
+      ],
+      "features": [],
+      "tech_stack": [
+        "Laravel",
+        "MYSQL",
+        "SMTP"
+      ]
+    },
+    {
+      "slug": "blockchain-visualizer",
+      "title": "Block Chain Visualizer",
+      "short_description": "It is the project showcasing my own implementation of blockchain technology.",
+      "full_description": "This is a sample implementation of the blockchain technology implemented using type script and react. It has features like transaction mining and block view.",
+      "image_url": "https://i0.wp.com/epthinktank.eu/wp-content/uploads/2018/09/shutterstock_1054622195.jpg?fit=1000%2C1000&ssl=1",
+      "live_url": "#",
+      "github_url": "https://blockchain-dusky-three.vercel.app/",
+      "featured": false,
+      "tags": [
+        "UI/UX",
+        "Web",
+        "Design"
+      ],
+      "features": [
+        "Block Chain Implementation",
+        "Transactions",
+        "Blocks and mining",
+        "Block Chain Visualizer"
+      ],
+      "tech_stack": [
+        "TypeScript",
+        "NextJS",
+        "Supabase",
+        "Vercel"
+      ]
+    },
+    {
+      "slug": "everest-travels",
+      "title": "Everest Travels",
+      "short_description": "Everest Travels is an travels and tours company based in Australia with branch in Kathmandu ,Nepal.",
+      "full_description": "Using the site user can view different tour packages available in Nepal or can book a flightfor cities around the world. Once a ticket or package is booked it the message gets pushed to admin using SMTP protocol where admin views the request and processes the request manually",
+      "image_url": "https://www.everesttravel.com.au/uploads/0000/11/2023/06/02/everest-pic.png",
+      "live_url": "#",
+      "github_url": "https://www.everesttravel.com.au/",
+      "featured": false,
+      "tags": [
+        "Laravel",
+        "SMTP",
+        "MYSQL"
+      ],
+      "features": [
+        "Interactive tour package visualization",
+        "Manage content form admin",
+        "Flight Search API",
+        "Easy for booking"
+      ],
+      "tech_stack": [
+        "Laravel",
+        "SMTP",
+        "MYSQL",
+        "CSS"
+      ]
+    },
+    {
+      "slug": "wise-choice-mortgage",
+      "title": "Wise Choice Mortgage",
+      "short_description": "Real state mortgage and broker company based in Australia.",
+      "full_description": "Wise choice mortgage and finance is a company that deals with home loans situated in Australia. It is an portfolio site for the company. In this site user can book a consultation or request for property valuation. This site also contains borrowing calculator, repayment calculator and stamp duty calculator.",
+      "image_url": "https://wisechoicemortgage.com.au/uploads/20230829043931-logo.png",
+      "live_url": "#",
+      "github_url": "https://wisechoicemortgage.com.au/",
+      "featured": false,
+      "tags": [
+        "Laravel",
+        "SMTP",
+        "Interactive"
+      ],
+      "features": [
+        "Content Management System",
+        "Borrowing , Repayment and Stamp Duty Calculator",
+        "Blogs and Posts",
+        "Custom property evaluation "
+      ],
+      "tech_stack": [
+        "Laravel",
+        "Oracle Cloud",
+        "SMTP",
+        "CSS",
+        "MYSQL",
+        "BANK API"
+      ]
+    },
+    {
+      "slug": "foodie-nepal",
+      "title": "Foodie Nepal",
+      "short_description": "Foodie Nepal is a food delivery service provider based in Kathmandu Nepal",
+      "full_description": "Foodie Nepal is an online food ordering app where one can order food form different restaurants around the city. Once the order is placed using user app the order is pushed to specific restaurant app using Firebase notifications. Once restaurant is ready to send the food, they can view nearby online delivery boy and dispatch the order. Users can view real time location of delivery boy.",
+      "image_url": "https://admin.foodienepal.com/storage/app/public/business/2024-03-20-65fabff9942cd.png",
+      "live_url": "#",
+      "github_url": "https://foodienepal.com",
+      "featured": false,
+      "tags": [
+        "UI/UX",
+        "Animation",
+        "Design"
+      ],
+      "features": [
+        "Quick Food Ordering",
+        "Beautiful user interface",
+        "Live Food Tracking",
+        "Subscription Based"
+      ],
+      "tech_stack": [
+        "Laravel",
+        "MySQL",
+        "Flutter",
+        "REST API",
+        "Firebase",
+        "Google Maps"
+      ]
+    },
+    {
+      "slug": "photo-fix",
+      "title": "Photo Fix",
+      "short_description": "Photo Fix is a photo editing app where we can edit and save photos and videos",
+      "full_description": "Photofix is a photo and video editing tool for android devices which shows admob ads for monetization. This app contains feature like edit photo, crop photo, trim videos, compress photo and make collage features. It also has free photos collection within the app. This app also can be used to apply filters on photos which is achieved by multiplying pixels value with some constant matrix.",
+      "image_url": "https://lh3.googleusercontent.com/ZNo5kexx4JFjkx77Vc2wTQAOYV0UV0_sHYjY5sb8wXpQ97HLGqW7kLZnLjm60_Ax7EKW",
+      "live_url": "#",
+      "github_url": "https://github.com/PrakashNiraula/photofix",
+      "featured": false,
+      "tags": [
+        "UI/UX",
+        "Animation",
+        "Design"
+      ],
+      "features": [
+        "Easy to use",
+        "Edit Photos and Videos",
+        "Apply Filters",
+        "Free to use"
+      ],
+      "tech_stack": [
+        "Flutter",
+        "REST API",
+        "Firebase"
+      ]
+    },
+    {
+      "slug": "golocrm-mobile",
+      "title": "GoloCrm Mobile",
+      "short_description": "It is a mobile app for GOLOCRM wher user can view rosters and add attendences.",
+      "full_description": "It is a mobile app for https://golocrm.com where users are assigned shifts and sites where user need to be inside defined radius in the site to manage attendances",
+      "image_url": "https://www.golocrm.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoWhite.10a0e67b.png&w=256&q=75",
+      "live_url": "#",
+      "github_url": "https://play.google.com/store/apps/details?id=com.zeptosky.golocrm",
+      "featured": false,
+      "tags": [
+        "UI/UX",
+        "Animation",
+        "Design",
+        "Mobile"
+      ],
+      "features": [
+        "View Roster",
+        "Add Attendences",
+        "Add Logbooks",
+        "Add Notes"
+      ],
+      "tech_stack": [
+        "Flutter",
+        "REST API",
+        "Firebase",
+        "Google Maps API"
+      ]
+    },
+    {
+      "slug": "pokhreli-restaurant-core",
+      "title": "PokhreliRestaurantCore",
+      "short_description": "PokhreliRestaurantCore is a desktop application used for tracking hotel data.",
+      "full_description": "This is a desktop application that can be used to create and manage restaurant data. Here one can manage products staffs guests products ingredients and expenses. It used amazon rds for storing data which are then rendered on windows forms.",
+      "image_url": "https://yopoho.com/tourism/tourismpics/1269t3.jpg",
+      "live_url": "#",
+      "github_url": "https://github.com/PrakashNiraula/restaurantcore",
+      "featured": false,
+      "tags": [
+        "UI/UX",
+        "Animation",
+        "Design"
+      ],
+      "features": [
+        "Easy to use",
+        "Manage Income and Expenses",
+        "Manage staffs and products and rooms ",
+        "Create and manage invoices and guest entry"
+      ],
+      "tech_stack": [
+        "C#",
+        "Windows Forms",
+        "WPF",
+        "Amazon RDS"
+      ]
+    },
+    {
+      "slug": "telebot",
+      "title": "TeleBot",
+      "short_description": "A telegram bot with ecommerce feature built inside telegram chat",
+      "full_description": "Telebot is a online telegram bot with ecommerce features build inside telegram chat. Users are able to view products ,add to cart , buy and online payment integration .",
+      "image_url": "https://www.alphr.com/wp-content/uploads/2024/10/best-telegram-bots.jpg",
+      "live_url": "#",
+      "github_url": "https://github.com/PrakashNiraula/telebot",
+      "featured": false,
+      "tags": [
+        "Backend",
+        "Automation",
+        "Core Ecommerce"
+      ],
+      "features": [
+        "Easy to use",
+        "Product View and BUy",
+        "User Profile and Order History",
+        "Automated digitial product delivery"
+      ],
+      "tech_stack": [
+        "NodeJs",
+        "Telegram",
+        "Bot",
+        "MySql",
+        "Coinbase Payment"
+      ]
+    }
+  ],
+  "privacy_sections": [
+    {
+      "heading": "Introduction",
+      "body": "This Privacy Policy explains how we collect, use, and protect information that you may provide while using our portfolio website. We are committed to ensuring that your privacy is protected in compliance with applicable laws and regulations.\n\nBy using this website, you agree to the collection and use of information in accordance with this policy."
+    },
+    {
+      "heading": "Information We Collect",
+      "body": "We may collect the following information when you interact with our website:\n\n- Name and contact information, including email address, when you fill out our contact form\n- Information about your visit, including pages you viewed, time spent on the website, and navigation paths\n- Technical information such as your IP address, browser type and version, and operating system\n- Cookies and similar technologies as detailed in our Cookie Policy"
+    },
+    {
+      "heading": "How We Use Your Information",
+      "body": "We use the information we collect for the following purposes:\n\n- To respond to your inquiries and provide you with requested information\n- To improve our website and user experience\n- To analyze website traffic and usage patterns\n- To maintain security and prevent fraud\n- To comply with legal obligations"
+    },
+    {
+      "heading": "Data Security",
+      "body": "We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. These measures include:\n\n- Secure socket layer (SSL) encryption for data transmission\n- Regular security assessments and updates\n- Access controls and authentication procedures\n- Data minimization practices\n\nWhile we strive to protect your personal information, please be aware that no method of transmission over the internet is 100% secure."
+    },
+    {
+      "heading": "Your Rights",
+      "body": "Depending on your location, you may have certain rights regarding your personal information, including:\n\n- The right to access the personal information we hold about you\n- The right to request correction of inaccurate information\n- The right to request deletion of your personal information\n- The right to restrict or object to processing of your information\n- The right to data portability\n- The right to withdraw consent\n\nTo exercise these rights, please contact us using the information provided in the Contact section below."
+    },
+    {
+      "heading": "Third-Party Links",
+      "body": "Our website may contain links to third-party websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites. We encourage you to read the privacy statements of any third-party websites you visit."
+    },
+    {
+      "heading": "Changes to This Privacy Policy",
+      "body": "We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will post any changes on this page and, when appropriate, notify you by email. We encourage you to periodically review this Privacy Policy for the latest information on our privacy practices."
+    },
+    {
+      "heading": "Contact Information",
+      "body": "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at the details shown below."
+    }
+  ]
+}

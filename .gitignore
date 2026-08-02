@@ -24,7 +24,6 @@ tailwind/node_modules/
 # OS
 .DS_Store
 docs/
-fixtures/
 docker-compose.yml
 dockerfile
 

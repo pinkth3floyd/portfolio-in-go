@@ -29,8 +29,8 @@ type Config struct {
 func Load() Config {
 	dataDir := getenv("DATA_DIR", "./data")
 	return Config{
-		Addr:             getenv("ADDR", ":8080"),
-		BaseURL:          strings.TrimRight(getenv("BASE_URL", "http://localhost:8080"), "/"),
+		Addr:             getenv("ADDR", ":3000"),
+		BaseURL:          strings.TrimRight(getenv("BASE_URL", "http://localhost:3000"), "/"),
 		DataDir:          dataDir,
 		DBPath:           getenv("DB_PATH", dataDir+"/app.db"),
 		DBDriver:         getenv("DB_DRIVER", "sqlite"),
