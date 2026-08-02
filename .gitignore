@@ -1,0 +1,34 @@
+# Binaries
+/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Data
+/data/
+*.db
+*.db-*
+
+# Env
+.env
+
+# Node
+tailwind/node_modules/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+docs/
+fixtures/
+docker-compose.yml
+dockerfile
+
+makefile
+README.md
+go.sum
+deploy/

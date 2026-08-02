@@ -1,0 +1,57 @@
+{{define "admin/links.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-2">Footer Links</h1>
+<p class="text-cyber-lavender/60 mb-6 text-sm">Social / external links shown in the site footer.</p>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+  <div class="space-y-3">
+    {{range .FooterLinks}}
+    <div class="cyber-card">
+      <div class="flex justify-between gap-4 items-start">
+        <div>
+          <p class="font-orbitron text-cyber-cyan">{{.Label}}</p>
+          <p class="text-sm text-cyber-lavender/60 break-all">{{.URL}}</p>
+          <p class="text-xs text-cyber-lavender/40 mt-1">icon: {{.Icon}} · order: {{.SortOrder}} {{if .Enabled}}· enabled{{else}}· hidden{{end}}</p>
+        </div>
+        <div class="flex gap-2 shrink-0 items-start">
+          <a href="/admin/links?edit={{.ID}}" class="text-sm text-cyber-cyan hover:underline">Edit</a>
+          <form method="POST" action="/admin/links/{{.ID}}/delete" onsubmit="return confirm('Delete this link?')">{{csrfField $.CSRFToken}}<button class="text-sm text-cyber-pink">Delete</button></form>
+        </div>
+      </div>
+    </div>
+    {{else}}
+    <p class="text-cyber-lavender/60">No footer links yet.</p>
+    {{end}}
+  </div>
+  <form method="POST" action="/admin/links" class="cyber-card space-y-3">
+    {{csrfField .CSRFToken}}
+    <h2 class="font-orbitron text-xl text-white mb-2">{{if .FooterLink}}Edit Link{{else}}New Link{{end}}</h2>
+    <input type="hidden" name="id" value="{{if .FooterLink}}{{.FooterLink.ID}}{{end}}">
+    <input class="cyber-input w-full" name="label" placeholder="Label (e.g. GitHub)" value="{{if .FooterLink}}{{.FooterLink.Label}}{{end}}" required>
+    <input class="cyber-input w-full" name="url" placeholder="https://..." value="{{if .FooterLink}}{{.FooterLink.URL}}{{end}}" required>
+    <label class="block text-sm text-cyber-lavender/70">Icon
+      <select class="cyber-input w-full mt-1" name="icon">
+        <option value="github" {{if and .FooterLink (eq .FooterLink.Icon "github")}}selected{{end}}>GitHub</option>
+        <option value="twitter" {{if and .FooterLink (eq .FooterLink.Icon "twitter")}}selected{{end}}>Twitter</option>
+        <option value="linkedin" {{if and .FooterLink (eq .FooterLink.Icon "linkedin")}}selected{{end}}>LinkedIn</option>
+        <option value="link" {{if or (not .FooterLink) (eq .FooterLink.Icon "link")}}selected{{end}}>Generic link</option>
+      </select>
+    </label>
+    <input class="cyber-input w-full" type="number" name="sort_order" placeholder="Sort order" value="{{if .FooterLink}}{{.FooterLink.SortOrder}}{{else}}0{{end}}">
+    <label class="flex items-center gap-2"><input type="checkbox" name="enabled" value="1" {{if or (not .FooterLink) (and .FooterLink .FooterLink.Enabled)}}checked{{end}}> Enabled (show in footer)</label>
+    <button type="submit" class="cyber-btn">Save Link</button>
+    {{if .FooterLink}}<a href="/admin/links" class="text-sm text-cyber-lavender/60 ml-4">Cancel</a>{{end}}
+  </form>
+</div>
+{{template "admin/shell-end.html" .}}
+</body>
+</html>
+{{end}}

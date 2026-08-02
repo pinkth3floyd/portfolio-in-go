@@ -1,0 +1,22 @@
+{{define "pages/notfound.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <div class="flex items-center justify-center">
+    <div class="text-center px-4 py-24">
+      <h1 class="cyber-heading text-6xl mb-4">404</h1>
+      <p class="text-cyber-lavender/70 text-xl mb-8 font-rajdhani">Oops! Page not found.</p>
+      <a href="/" class="cyber-btn">Return Home</a>
+    </div>
+  </div>
+</main>
+{{template "partials/footer.html" .}}
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

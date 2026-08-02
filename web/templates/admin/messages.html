@@ -1,0 +1,28 @@
+{{define "admin/messages.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-6">Contact Messages</h1>
+{{if not .Messages}}<p class="text-cyber-lavender/60">No messages yet.</p>{{end}}
+{{range .Messages}}
+<div class="cyber-card mb-4">
+  <div class="flex justify-between gap-4">
+    <div>
+      <p class="font-orbitron text-cyber-cyan">{{.Subject}}</p>
+      <p class="text-sm text-cyber-lavender/60">{{.Name}} &lt;{{.Email}}&gt; · {{.CreatedAt.Format "2006-01-02 15:04"}}</p>
+      <p class="mt-3 text-cyber-text whitespace-pre-wrap">{{.Message}}</p>
+    </div>
+    <form method="POST" action="/admin/messages/{{.ID}}/delete">{{csrfField $.CSRFToken}}<button class="text-cyber-pink text-sm">Delete</button></form>
+  </div>
+</div>
+{{end}}
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}

@@ -1,0 +1,8 @@
+{{define "partials/contact-result.html"}}
+{{if .Flash}}
+<div class="p-4 mb-4 border border-cyber-cyan/40 text-cyber-cyan rounded">{{.Flash}}</div>
+{{end}}
+{{if .FlashError}}
+<div class="p-4 mb-4 border border-cyber-pink/40 text-cyber-pink rounded">{{.FlashError}}</div>
+{{end}}
+{{end}}

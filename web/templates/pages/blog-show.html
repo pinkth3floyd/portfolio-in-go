@@ -1,0 +1,55 @@
+{{define "pages/blog-show.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <article class="container mx-auto px-4 py-16 max-w-3xl">
+    {{if .Blog.CoverImage}}
+    <div class="mb-8 overflow-hidden border border-cyber-purple/30 rounded-md">
+      <img src="{{.Blog.CoverImage}}" alt="{{.Blog.Title}}" class="w-full max-h-80 object-cover" width="1200" height="630">
+    </div>
+    {{end}}
+    <header class="mb-10">
+      <h1 class="cyber-heading text-3xl md:text-5xl mb-4 tracking-wider">{{.Blog.Title}}</h1>
+      <div class="flex flex-wrap gap-4 text-sm text-cyber-lavender/60 font-rajdhani">
+        <span>{{formatDate .Blog.PublishedAt}}</span>
+        <span aria-hidden="true">·</span>
+        <span>{{.Blog.ViewCount}} views</span>
+      </div>
+    </header>
+
+    <div class="mb-10 flex flex-wrap items-center gap-3">
+      <span class="font-orbitron text-xs tracking-wider text-cyber-lavender/50">SHARE</span>
+      <a class="px-3 py-1.5 text-xs border border-cyber-purple/40 rounded hover:border-cyber-cyan hover:text-cyber-cyan transition-colors"
+         href="https://twitter.com/intent/tweet?url={{urlquery .ShareURL}}&text={{urlquery .Blog.Title}}"
+         target="_blank" rel="noopener noreferrer">Twitter / X</a>
+      <a class="px-3 py-1.5 text-xs border border-cyber-purple/40 rounded hover:border-cyber-cyan hover:text-cyber-cyan transition-colors"
+         href="https://www.linkedin.com/sharing/share-offsite/?url={{urlquery .ShareURL}}"
+         target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="px-3 py-1.5 text-xs border border-cyber-purple/40 rounded hover:border-cyber-cyan hover:text-cyber-cyan transition-colors"
+         href="https://www.facebook.com/sharer/sharer.php?u={{urlquery .ShareURL}}"
+         target="_blank" rel="noopener noreferrer">Facebook</a>
+      <button type="button" id="copy-link" data-url="{{.ShareURL}}"
+         class="px-3 py-1.5 text-xs border border-cyber-purple/40 rounded hover:border-cyber-cyan hover:text-cyber-cyan transition-colors">
+        Copy link
+      </button>
+    </div>
+
+    {{rawHTML .Blog.Body}}
+
+    <aside class="mt-16 cyber-card border-cyber-cyan/30">
+      <h2 class="font-orbitron text-cyber-cyan text-xl mb-3">Explore the product</h2>
+      <p class="text-cyber-lavender/80 mb-4">Try free PDF, SEO, and conversion utilities at Web Converter Tools — no signup required.</p>
+      <a href="https://webconvertertools.com/" class="cyber-btn cyber-btn-sm" target="_blank" rel="noopener noreferrer">Open WebConverterTools.com</a>
+    </aside>
+  </article>
+</main>
+{{template "partials/footer.html" .}}
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

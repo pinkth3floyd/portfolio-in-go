@@ -1,0 +1,44 @@
+{{define "partials/project-modal.html"}}
+<div id="project-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true">
+  <div class="absolute inset-0 bg-black/80" onclick="closeProjectModal()" aria-hidden="true"></div>
+  <div class="relative bg-cyber-background border border-cyber-purple/30 text-cyber-text max-w-3xl w-[90vw] max-h-[90vh] overflow-y-auto rounded-md z-10">
+    <button type="button"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 text-cyber-cyan hover:text-cyber-pink hover:bg-black/50 transition-colors text-4xl leading-none"
+      onclick="closeProjectModal()"
+      aria-label="Close project details">
+      <span class="flex items-center justify-center w-10 h-10 rounded-full bg-black/75 border border-cyber-cyan/50 shadow-[0_0_12px_rgba(0,255,255,0.35)]" aria-hidden="true">&times;</span>
+    </button>
+    <div class="relative h-48 md:h-64 overflow-hidden">
+      <img src="{{.Project.ImageURL}}" alt="{{.Project.Title}}" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+    </div>
+    <div class="p-6">
+      <h2 class="font-orbitron text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-purple to-cyber-cyan pr-12">{{.Project.Title}}</h2>
+      <p class="text-cyber-lavender/70 mt-2">{{if .Project.FullDescription}}{{.Project.FullDescription}}{{else}}{{.Project.ShortDescription}}{{end}}</p>
+      {{if .Project.Features}}
+      <div class="mt-6">
+        <h4 class="font-orbitron text-cyber-cyan mb-2">Features</h4>
+        <ul class="list-disc pl-5 space-y-1 text-cyber-lavender/70">
+          {{range .Project.Features}}<li>{{.}}</li>{{end}}
+        </ul>
+      </div>
+      {{end}}
+      {{if .Project.TechStack}}
+      <div class="mt-4">
+        <h4 class="font-orbitron text-cyber-cyan mb-2">Tech Stack</h4>
+        <div class="flex flex-wrap gap-2">
+          {{range .Project.TechStack}}
+          <span class="px-2 py-1 text-xs bg-cyber-purple/20 border border-cyber-purple/30 text-cyber-lavender rounded">{{.}}</span>
+          {{end}}
+        </div>
+      </div>
+      {{end}}
+      {{if .Project.GithubURL}}
+      <div class="flex justify-end gap-4 mt-8">
+        <a href="{{.Project.GithubURL}}" target="_blank" rel="noopener noreferrer" class="cyber-btn cyber-btn-outline cyber-btn-sm">Open Live URL</a>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+{{end}}

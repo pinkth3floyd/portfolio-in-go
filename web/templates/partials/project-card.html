@@ -1,0 +1,18 @@
+{{define "partials/project-card.html"}}
+<a href="/projects/{{.Slug}}" class="cyber-card group cursor-pointer h-full flex flex-col text-left w-full no-underline">
+  <div class="relative h-48 mb-4 overflow-hidden border border-cyber-purple/20">
+    <img src="{{.ImageURL}}" alt="{{.Title}} by Prakash Niraula" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" width="640" height="360">
+    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+  </div>
+  <span class="font-orbitron text-xl font-bold text-cyber-cyan mb-2 group-hover:text-cyber-purple transition-colors">{{.Title}}</span>
+  <p class="text-cyber-lavender/70 mb-4 flex-grow">{{.ShortDescription}}</p>
+  <div class="flex flex-wrap gap-2 mb-4">
+    {{range .Tags}}
+    <span class="px-2 py-1 text-xs bg-cyber-purple/10 border border-cyber-purple/30 text-cyber-lavender rounded">{{.}}</span>
+    {{end}}
+  </div>
+  <div class="mt-auto">
+    <div class="text-cyber-cyan text-xs tracking-wider font-orbitron">VIEW CASE STUDY →</div>
+  </div>
+</a>
+{{end}}

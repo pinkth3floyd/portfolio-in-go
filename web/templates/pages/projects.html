@@ -1,0 +1,37 @@
+{{define "pages/projects.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <div class="container mx-auto px-4 py-16">
+    <h1 class="cyber-heading text-4xl md:text-5xl text-center mb-4 tracking-wider">Projects</h1>
+    <p class="text-cyber-lavender/70 text-center max-w-2xl mx-auto mb-12">{{setting .Settings "projects_intro"}}</p>
+    <div class="flex justify-center mb-12">
+      <div class="inline-flex p-1 rounded-lg bg-cyber-background border border-cyber-purple/30" id="project-filters">
+        {{range .Filters}}
+        <button type="button"
+          data-filter="{{.}}"
+          hx-get="/projects?tag={{.}}"
+          hx-target="#projects-grid"
+          hx-swap="innerHTML"
+          class="filter-btn px-6 py-2 rounded-md font-orbitron text-sm transition-all duration-300 {{if eq $.ActiveFilter .}}is-active bg-gradient-to-r from-cyber-purple/20 to-cyber-cyan/20 text-cyber-cyan border border-cyber-cyan/30 shadow-[0_0_10px_rgba(0,255,255,0.2)]{{else}}text-cyber-lavender/70 hover:text-cyber-lavender{{end}}">
+          {{.}}
+        </button>
+        {{end}}
+      </div>
+    </div>
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{template "partials/project-grid.html" .}}
+    </div>
+  </div>
+</main>
+{{template "partials/footer.html" .}}
+<div id="project-modal-root"></div>
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

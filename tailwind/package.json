@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-tailwind",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ../web/static/css/app.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ../web/static/css/app.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

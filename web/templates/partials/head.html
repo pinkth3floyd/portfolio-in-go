@@ -1,0 +1,42 @@
+{{define "partials/head.html"}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{if .Title}}{{.Title}}{{else}}Prakash Niraula{{end}}</title>
+<meta name="description" content="{{.Description}}">
+{{if .Keywords}}<meta name="keywords" content="{{.Keywords}}">{{end}}
+<meta name="author" content="{{if setting .Settings "site_name"}}{{setting .Settings "site_name"}}{{else}}Prakash Niraula{{end}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="{{.Canonical}}">
+<meta property="og:site_name" content="{{if setting .Settings "site_name"}}{{setting .Settings "site_name"}}{{else}}Prakash Niraula{{end}}">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="{{.Title}}">
+<meta property="og:description" content="{{.Description}}">
+<meta property="og:type" content="{{if .OGType}}{{.OGType}}{{else}}website{{end}}">
+<meta property="og:url" content="{{.Canonical}}">
+{{if .OGImage}}<meta property="og:image" content="{{if hasPrefix .OGImage "http"}}{{.OGImage}}{{else}}{{.BaseURL}}{{.OGImage}}{{end}}">{{end}}
+{{if eq .OGType "article"}}
+{{if .Blog}}
+{{if .Blog.PublishedAt}}<meta property="article:published_time" content="{{.Blog.PublishedAt.Format "2006-01-02T15:04:05Z07:00"}}">{{end}}
+<meta property="article:author" content="{{if setting .Settings "site_name"}}{{setting .Settings "site_name"}}{{else}}Prakash Niraula{{end}}">
+{{end}}
+{{end}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{.Title}}">
+<meta name="twitter:description" content="{{.Description}}">
+{{if .Settings}}{{with setting .Settings "twitter_handle"}}<meta name="twitter:site" content="{{.}}">{{end}}{{end}}
+{{if .OGImage}}<meta name="twitter:image" content="{{if hasPrefix .OGImage "http"}}{{.OGImage}}{{else}}{{.BaseURL}}{{.OGImage}}{{end}}">{{end}}
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/app.css">
+<script src="/static/js/htmx.min.js" defer></script>
+{{if .JSONLD}}<script type="application/ld+json">{{.JSONLD}}</script>{{end}}
+{{if .GAID}}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{.GAID}}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{.GAID}}');</script>
+{{end}}
+{{if .AhrefsKey}}
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="{{.AhrefsKey}}" async></script>
+{{end}}
+{{end}}

@@ -1,0 +1,43 @@
+{{define "admin/privacy.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-6">Privacy Sections</h1>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+  <div>
+    {{range .PrivacySections}}
+    <div class="cyber-card mb-3">
+      <p class="font-orbitron text-cyber-cyan">{{.Heading}}</p>
+      <div class="flex gap-3 mt-2">
+        <a href="/admin/privacy?edit={{.ID}}" class="text-sm text-cyber-cyan">Edit</a>
+        <form method="POST" action="/admin/privacy/{{.ID}}/delete">{{csrfField $.CSRFToken}}<button class="text-sm text-cyber-pink">Delete</button></form>
+      </div>
+    </div>
+    {{end}}
+  </div>
+  <form method="POST" action="/admin/privacy" class="cyber-card space-y-3">
+    {{csrfField .CSRFToken}}
+    <h2 class="font-orbitron text-xl">{{if .PrivacyEdit}}Edit Section{{else}}New Section{{end}}</h2>
+    {{if .PrivacyEdit}}
+    <input type="hidden" name="id" value="{{.PrivacyEdit.ID}}">
+    <input class="cyber-input w-full" name="heading" value="{{.PrivacyEdit.Heading}}" required>
+    <textarea class="cyber-input w-full" name="body" rows="8">{{.PrivacyEdit.Body}}</textarea>
+    <input class="cyber-input w-full" name="sort_order" type="number" value="{{.PrivacyEdit.SortOrder}}">
+    {{else}}
+    <input class="cyber-input w-full" name="heading" placeholder="Heading" required>
+    <textarea class="cyber-input w-full" name="body" rows="8" placeholder="Body"></textarea>
+    <input class="cyber-input w-full" name="sort_order" type="number" value="0">
+    {{end}}
+    <button class="cyber-btn">Save</button>
+  </form>
+</div>
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}

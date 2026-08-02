@@ -1,0 +1,16 @@
+{{define "partials/timeline-item.html"}}
+{{/* expects: .Date .Title .Description .IsLast */}}
+<div class="relative flex items-start">
+  {{if not .IsLast}}
+  <div class="absolute left-4 top-5 h-full w-[1px] bg-gradient-to-b from-cyber-purple to-cyber-cyan/30"></div>
+  {{end}}
+  <div class="z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyber-purple bg-cyber-background text-cyber-cyan shadow-[0_0_10px_rgba(160,32,240,0.3)]">
+    <div class="h-2 w-2 rounded-full bg-cyber-cyan"></div>
+  </div>
+  <div class="ml-4 pb-8">
+    <span class="font-orbitron text-xs text-cyber-purple mb-1 block">{{.Date}}</span>
+    <h3 class="font-orbitron text-lg text-cyber-cyan mb-2">{{.Title}}</h3>
+    {{if .Description}}<p class="text-cyber-lavender/70">{{.Description}}</p>{{end}}
+  </div>
+</div>
+{{end}}

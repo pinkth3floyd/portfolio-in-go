@@ -1,0 +1,42 @@
+{{define "admin/pages.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-6">Pages / SEO</h1>
+<div class="flex flex-wrap gap-2 mb-8">
+  {{range .Pages}}
+  <a href="/admin/pages?slug={{.Slug}}" class="px-4 py-2 border border-cyber-purple/30 font-orbitron text-sm {{if eq $.Page.Slug .Slug}}border-cyber-cyan text-cyber-cyan{{end}}">{{.Slug}}</a>
+  {{end}}
+</div>
+{{if .Page}}
+<form method="POST" action="/admin/pages" class="cyber-card space-y-4 max-w-3xl">
+  {{csrfField .CSRFToken}}
+  <input type="hidden" name="slug" value="{{.Page.Slug}}">
+  <div><label class="block mb-1">SEO Title</label><input class="cyber-input w-full" name="title" value="{{.Page.Title}}"></div>
+  <div><label class="block mb-1">Meta Description</label><textarea class="cyber-input w-full" name="meta_description" rows="2">{{.Page.MetaDescription}}</textarea></div>
+  <div><label class="block mb-1">Keywords</label><input class="cyber-input w-full" name="meta_keywords" value="{{.Page.MetaKeywords}}"></div>
+  <div><label class="block mb-1">OG Image URL</label><input class="cyber-input w-full" name="og_image" value="{{.Page.OGImage}}"></div>
+  <h2 class="font-orbitron text-cyber-cyan pt-4">Sections</h2>
+  {{range $key, $sec := .Page.Sections}}
+  <fieldset class="border border-cyber-purple/20 p-4 rounded">
+    <legend class="px-2 text-cyber-lavender">{{$key}}</legend>
+    <div class="space-y-2">
+      <input class="cyber-input w-full" name="section_{{$key}}_title" value="{{$sec.Title}}" placeholder="Title">
+      <input class="cyber-input w-full" name="section_{{$key}}_subtitle" value="{{$sec.Subtitle}}" placeholder="Subtitle">
+      <textarea class="cyber-input w-full" name="section_{{$key}}_body" rows="3" placeholder="Body">{{$sec.Body}}</textarea>
+    </div>
+  </fieldset>
+  {{end}}
+  <button type="submit" class="cyber-btn">Save Page</button>
+</form>
+{{end}}
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}

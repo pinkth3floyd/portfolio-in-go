@@ -1,0 +1,71 @@
+{{define "pages/about.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <div class="container mx-auto px-4 py-16 relative">
+    <div class="absolute inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(20,1fr)] opacity-10 pointer-events-none overflow-hidden" aria-hidden="true">
+      {{range $i := index .Extra "GridCells"}}
+      <div class="border border-cyber-purple/20" style="transform: rotate({{$i}}deg)"></div>
+      {{end}}
+    </div>
+
+    {{$intro := section .Page "intro"}}
+    {{$skillsSec := section .Page "skills"}}
+
+    <h1 class="text-4xl md:text-5xl font-orbitron text-white mb-8 relative z-10">
+      {{if $intro.Title}}{{template "partials/glitch-low.html" $intro.Title}}{{else}}{{template "partials/glitch-low.html" "About Me"}}{{end}}
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+      <div class="cyber-card transform hover:scale-105 transition-transform duration-300">
+        <p class="text-gray-300 mb-6 text-lg">{{if $intro.Body}}{{$intro.Body}}{{end}}</p>
+        <p class="text-gray-300 mb-6 text-lg">{{setting .Settings "about_extra_1"}}</p>
+        <p class="text-cyan-400 text-lg">{{setting .Settings "about_extra_2"}}</p>
+      </div>
+      <div class="cyber-card">
+        <h2 class="text-2xl font-orbitron text-cyan-400 mb-6">{{if $skillsSec.Title}}{{$skillsSec.Title}}{{else}}Technical Skills{{end}}</h2>
+        <div class="grid grid-cols-2 gap-4">
+          {{range .Skills}}
+          <div class="bg-black/30 border border-cyan-500/30 rounded-md p-4 hover:border-cyan-500 transition-colors">
+            <span class="text-white">{{.Label}}</span>
+          </div>
+          {{end}}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-20 relative z-10">
+      <h2 class="text-3xl font-orbitron text-white mb-12">
+        {{template "partials/glitch-low.html" "Experience"}}
+      </h2>
+      <div class="space-y-0">
+        {{$n := len .Experiences}}
+        {{range $i, $e := .Experiences}}
+        {{template "partials/timeline-item.html" dict "Date" $e.Period "Title" (printf "%s at %s" $e.Role $e.Company) "Description" $e.Description "IsLast" (isLast $i $n)}}
+        {{end}}
+      </div>
+    </div>
+
+    <div class="mt-20 relative z-10">
+      <h2 class="text-3xl font-orbitron text-white mb-12">
+        {{template "partials/glitch-low.html" "Education"}}
+      </h2>
+      <div class="space-y-0">
+        {{$n := len .Education}}
+        {{range $i, $e := .Education}}
+        {{template "partials/timeline-item.html" dict "Date" $e.Year "Title" $e.Degree "Description" (printf "%s - %s" $e.School $e.Description) "IsLast" (isLast $i $n)}}
+        {{end}}
+      </div>
+    </div>
+  </div>
+</main>
+{{template "partials/footer.html" .}}
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

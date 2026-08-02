@@ -1,0 +1,9 @@
+{{define "partials/project-grid.html"}}
+{{if .Projects}}
+  {{range .Projects}}{{template "partials/project-card.html" .}}{{end}}
+{{else}}
+<div class="col-span-full text-center py-16">
+  <p class="text-cyber-lavender/70 text-lg">No projects found matching the selected filter.</p>
+</div>
+{{end}}
+{{end}}

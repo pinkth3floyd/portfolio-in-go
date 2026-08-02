@@ -1,0 +1,36 @@
+{{define "partials/nav.html"}}
+<nav class="fixed top-0 left-0 w-full z-50 bg-cyber-background/70 backdrop-blur-md border-b border-cyber-purple/30">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="font-orbitron text-xl font-bold text-cyber-purple">
+      <span class="inline-block animate-glow">PRAKASH</span><span class="text-cyber-cyan">NIRAULA</span>
+    </a>
+    <div class="hidden md:flex space-x-6">
+      {{$path := .CurrentPath}}
+      <a href="/" class="font-orbitron text-sm tracking-wider hover:text-cyber-cyan relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-cyber-cyan after:transition-all after:duration-300 hover:after:w-full {{if eq $path "/"}}text-cyber-cyan after:w-full{{else}}text-cyber-text{{end}}">HOME</a>
+      <a href="/about" class="font-orbitron text-sm tracking-wider hover:text-cyber-cyan relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-cyber-cyan after:transition-all after:duration-300 hover:after:w-full {{if eq $path "/about"}}text-cyber-cyan after:w-full{{else}}text-cyber-text{{end}}">ABOUT</a>
+      <a href="/projects" class="font-orbitron text-sm tracking-wider hover:text-cyber-cyan relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-cyber-cyan after:transition-all after:duration-300 hover:after:w-full {{if eq $path "/projects"}}text-cyber-cyan after:w-full{{else}}text-cyber-text{{end}}">PROJECTS</a>
+      <a href="/blog" class="font-orbitron text-sm tracking-wider hover:text-cyber-cyan relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-cyber-cyan after:transition-all after:duration-300 hover:after:w-full {{if or (eq $path "/blog") (hasPrefix $path "/blog/")}}text-cyber-cyan after:w-full{{else}}text-cyber-text{{end}}">BLOG</a>
+      <a href="/contact" class="font-orbitron text-sm tracking-wider hover:text-cyber-cyan relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-cyber-cyan after:transition-all after:duration-300 hover:after:w-full {{if eq $path "/contact"}}text-cyber-cyan after:w-full{{else}}text-cyber-text{{end}}">CONTACT</a>
+      <a href="/privacy" class="font-orbitron text-sm tracking-wider hover:text-cyber-cyan relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-cyber-cyan after:transition-all after:duration-300 hover:after:w-full {{if eq $path "/privacy"}}text-cyber-cyan after:w-full{{else}}text-cyber-text{{end}}">PRIVACY</a>
+    </div>
+    <button type="button" id="nav-toggle" class="md:hidden text-cyber-cyan hover:text-cyber-purple transition-colors" aria-label="Toggle menu">
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="mobile-nav" class="fixed inset-0 bg-black/95 backdrop-blur-md flex flex-col justify-center items-center z-40 transition-all duration-300 md:hidden opacity-0 pointer-events-none">
+    <div class="flex flex-col space-y-2 items-center bg-black/95 w-full overflow-visible mt-[160px]">
+      <a href="/" class="font-orbitron text-xl font-bold text-cyber-purple mb-4">
+        <span class="inline-block animate-glow">PRAKASH</span><span class="text-cyber-cyan">NIRAULA</span>
+      </a>
+      {{$path := .CurrentPath}}
+      <a href="/" class="font-orbitron text-xl tracking-wider transition-colors duration-300 {{if eq $path "/"}}text-cyber-cyan{{else}}text-cyber-text{{end}}">HOME</a>
+      <a href="/about" class="font-orbitron text-xl tracking-wider transition-colors duration-300 {{if eq $path "/about"}}text-cyber-cyan{{else}}text-cyber-text{{end}}">ABOUT</a>
+      <a href="/projects" class="font-orbitron text-xl tracking-wider transition-colors duration-300 {{if eq $path "/projects"}}text-cyber-cyan{{else}}text-cyber-text{{end}}">PROJECTS</a>
+      <a href="/blog" class="font-orbitron text-xl tracking-wider transition-colors duration-300 {{if or (eq $path "/blog") (hasPrefix $path "/blog/")}}text-cyber-cyan{{else}}text-cyber-text{{end}}">BLOG</a>
+      <a href="/contact" class="font-orbitron text-xl tracking-wider transition-colors duration-300 {{if eq $path "/contact"}}text-cyber-cyan{{else}}text-cyber-text{{end}}">CONTACT</a>
+      <a href="/privacy" class="font-orbitron text-xl tracking-wider transition-colors duration-300 {{if eq $path "/privacy"}}text-cyber-cyan{{else}}text-cyber-text{{end}}">PRIVACY</a>
+    </div>
+  </div>
+</nav>
+{{end}}

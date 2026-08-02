@@ -1,0 +1,8 @@
+{{define "partials/glitch-low.html"}}
+{{/* expects string as . */}}
+<span class="relative inline-block">
+  <span class="relative z-10">{{.}}</span>
+  <span class="absolute top-0 left-0 text-cyber-pink opacity-70 animate-[glitch_3s_infinite]" aria-hidden="true">{{.}}</span>
+  <span class="absolute top-0 left-0 text-cyber-cyan opacity-70 animate-[glitch_3s_infinite]" style="animation-delay:0.1s" aria-hidden="true">{{.}}</span>
+</span>
+{{end}}

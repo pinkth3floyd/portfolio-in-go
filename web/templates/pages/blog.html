@@ -1,0 +1,45 @@
+{{define "pages/blog.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <div class="container mx-auto px-4 py-16 max-w-5xl">
+    <h1 class="cyber-heading text-4xl md:text-5xl text-center mb-4 tracking-wider">Blog</h1>
+    <p class="text-cyber-lavender/70 text-center max-w-2xl mx-auto mb-12 text-lg">
+      Notes on system engineering, full-stack development, Flutter, Laravel, Next.js, SEO tooling, and products I build — including Web Converter Tools and GOLO CRM.
+    </p>
+    <div class="grid grid-cols-1 gap-8">
+      {{range .Blogs}}
+      <article class="cyber-card group">
+        <div class="flex flex-col md:flex-row gap-6">
+          {{if .CoverImage}}
+          <a href="/blog/{{.Slug}}" class="md:w-56 shrink-0 block overflow-hidden border border-cyber-purple/20 rounded">
+            <img src="{{.CoverImage}}" alt="{{.Title}}" class="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+          </a>
+          {{end}}
+          <div class="flex-1">
+            <p class="font-orbitron text-xs text-cyber-purple mb-2">{{formatDate .PublishedAt}} · {{.ViewCount}} views</p>
+            <h2 class="font-orbitron text-2xl text-cyber-cyan mb-3 group-hover:text-cyber-purple transition-colors">
+              <a href="/blog/{{.Slug}}">{{.Title}}</a>
+            </h2>
+            <p class="text-cyber-lavender/70 mb-4">{{.Excerpt}}</p>
+            <a href="/blog/{{.Slug}}" class="font-orbitron text-xs tracking-wider text-cyber-cyan">READ ARTICLE →</a>
+          </div>
+        </div>
+      </article>
+      {{else}}
+      <p class="text-center text-cyber-lavender/70 py-16">No posts published yet.</p>
+      {{end}}
+    </div>
+    {{template "partials/pagination.html" .}}
+  </div>
+</main>
+{{template "partials/footer.html" .}}
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

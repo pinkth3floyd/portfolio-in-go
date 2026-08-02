@@ -1,0 +1,51 @@
+{{define "admin/projects.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-6">Projects</h1>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+  <div class="space-y-3">
+    {{range .Projects}}
+    <div class="cyber-card flex justify-between items-start gap-4">
+      <div>
+        <p class="font-orbitron text-cyber-cyan">{{.Title}}</p>
+        <p class="text-sm text-cyber-lavender/60">{{.Slug}} {{if .Featured}}· featured{{end}} {{if not .Published}}· draft{{end}}</p>
+      </div>
+      <div class="flex gap-2 shrink-0">
+        <a href="/admin/projects?edit={{.ID}}" class="text-sm text-cyber-cyan hover:underline">Edit</a>
+        <form method="POST" action="/admin/projects/{{.ID}}/delete" onsubmit="return confirm('Delete?')">{{csrfField $.CSRFToken}}<button class="text-sm text-cyber-pink">Delete</button></form>
+      </div>
+    </div>
+    {{end}}
+  </div>
+  <form method="POST" action="/admin/projects" class="cyber-card space-y-3">
+    {{csrfField .CSRFToken}}
+    <h2 class="font-orbitron text-xl text-white mb-2">{{if .Project}}Edit Project{{else}}New Project{{end}}</h2>
+    <input type="hidden" name="id" value="{{if .Project}}{{.Project.ID}}{{end}}">
+    <input class="cyber-input w-full" name="title" placeholder="Title" value="{{if .Project}}{{.Project.Title}}{{end}}" required>
+    <input class="cyber-input w-full" name="slug" placeholder="slug" value="{{if .Project}}{{.Project.Slug}}{{end}}">
+    <textarea class="cyber-input w-full" name="short_description" rows="2" placeholder="Short description">{{if .Project}}{{.Project.ShortDescription}}{{end}}</textarea>
+    <textarea class="cyber-input w-full" name="full_description" rows="4" placeholder="Full description">{{if .Project}}{{.Project.FullDescription}}{{end}}</textarea>
+    <input class="cyber-input w-full" name="image_url" placeholder="Image URL" value="{{if .Project}}{{.Project.ImageURL}}{{end}}">
+    <input class="cyber-input w-full" name="live_url" placeholder="Live URL" value="{{if .Project}}{{.Project.LiveURL}}{{end}}">
+    <input class="cyber-input w-full" name="github_url" placeholder="Github / Live URL" value="{{if .Project}}{{.Project.GithubURL}}{{end}}">
+    <input class="cyber-input w-full" name="tags" placeholder="Tags (comma-separated)" value="{{if .Project}}{{join .Project.Tags ", "}}{{end}}">
+    <input class="cyber-input w-full" name="tech_stack" placeholder="Tech stack (comma-separated)" value="{{if .Project}}{{join .Project.TechStack ", "}}{{end}}">
+    <textarea class="cyber-input w-full" name="features" rows="3" placeholder="Features (one per line)">{{if .Project}}{{join .Project.Features "\n"}}{{end}}</textarea>
+    <input class="cyber-input w-full" name="sort_order" type="number" placeholder="Sort order" value="{{if .Project}}{{.Project.SortOrder}}{{else}}0{{end}}">
+    <label class="flex items-center gap-2"><input type="checkbox" name="featured" value="1" {{if and .Project .Project.Featured}}checked{{end}}> Featured</label>
+    <label class="flex items-center gap-2"><input type="checkbox" name="published" value="1" {{if or (not .Project) (and .Project .Project.Published)}}checked{{end}}> Published</label>
+    <button type="submit" class="cyber-btn">Save Project</button>
+    {{if .Project}}<a href="/admin/projects" class="text-sm text-cyber-lavender/60 ml-4">Cancel edit</a>{{end}}
+  </form>
+</div>
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}

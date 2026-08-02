@@ -1,0 +1,31 @@
+{{define "pages/privacy.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <div class="container mx-auto px-4 py-16 max-w-4xl">
+    <h1 class="cyber-heading text-4xl md:text-5xl tracking-wider text-center mb-8">Privacy Policy</h1>
+    {{range .PrivacySections}}
+    <div class="cyber-card mb-8">
+      <h2 class="cyber-heading text-xl md:text-2xl tracking-wider mb-4">{{.Heading}}</h2>
+      <div>{{safeHTML .Body}}</div>
+      {{if eq .Heading "Contact Information"}}
+      <div class="mt-4 p-4 bg-cyber-background/50 border border-cyber-purple/30 rounded-md">
+        <p class="text-cyber-lavender/90">Email: {{setting $.Settings "email"}}</p>
+        <p class="text-cyber-lavender/90">Address: {{setting $.Settings "address"}}</p>
+        <p class="text-cyber-lavender/90">Phone: {{setting $.Settings "phone"}}</p>
+      </div>
+      {{end}}
+    </div>
+    {{end}}
+  </div>
+</main>
+{{template "partials/footer.html" .}}
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

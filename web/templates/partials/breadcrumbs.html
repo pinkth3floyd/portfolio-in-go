@@ -1,0 +1,18 @@
+{{define "partials/breadcrumbs.html"}}
+{{if .Breadcrumbs}}
+<nav class="container mx-auto px-4 pt-6 relative z-10" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2 font-orbitron text-xs tracking-wider text-cyber-lavender/50">
+    {{range $i, $c := .Breadcrumbs}}
+      {{if $i}}<li aria-hidden="true" class="text-cyber-purple/50">/</li>{{end}}
+      <li>
+        {{if $c.Href}}
+        <a href="{{$c.Href}}" class="hover:text-cyber-cyan transition-colors">{{$c.Label}}</a>
+        {{else}}
+        <span class="text-cyber-cyan" aria-current="page">{{$c.Label}}</span>
+        {{end}}
+      </li>
+    {{end}}
+  </ol>
+</nav>
+{{end}}
+{{end}}

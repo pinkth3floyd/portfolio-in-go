@@ -1,0 +1,61 @@
+{{define "pages/project-show.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <article class="container mx-auto px-4 py-16 max-w-4xl">
+    <div class="relative h-56 md:h-80 mb-8 overflow-hidden border border-cyber-purple/30 rounded-md">
+      <img src="{{.Project.ImageURL}}" alt="{{.Project.Title}} — project by Prakash Niraula" class="w-full h-full object-cover" width="1200" height="630">
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+    </div>
+    <header class="mb-10">
+      <h1 class="cyber-heading text-3xl md:text-5xl tracking-wider mb-4">{{.Project.Title}}</h1>
+      <p class="text-cyber-lavender/80 text-lg md:text-xl font-rajdhani">{{.Project.ShortDescription}}</p>
+    </header>
+    <div class="cyber-card mb-8">
+      <h2 class="font-orbitron text-cyber-cyan text-xl mb-4">Overview</h2>
+      <p class="text-cyber-lavender/90 text-lg leading-relaxed">{{if .Project.FullDescription}}{{.Project.FullDescription}}{{else}}{{.Project.ShortDescription}}{{end}}</p>
+    </div>
+    {{if .Project.Features}}
+    <div class="cyber-card mb-8">
+      <h2 class="font-orbitron text-cyber-cyan text-xl mb-4">Features</h2>
+      <ul class="list-disc pl-5 space-y-2 text-cyber-lavender/80">
+        {{range .Project.Features}}<li>{{.}}</li>{{end}}
+      </ul>
+    </div>
+    {{end}}
+    {{if .Project.TechStack}}
+    <div class="cyber-card mb-8">
+      <h2 class="font-orbitron text-cyber-cyan text-xl mb-4">Tech Stack</h2>
+      <div class="flex flex-wrap gap-2">
+        {{range .Project.TechStack}}
+        <span class="px-3 py-1 text-sm bg-cyber-purple/20 border border-cyber-purple/30 text-cyber-lavender rounded">{{.}}</span>
+        {{end}}
+      </div>
+    </div>
+    {{end}}
+    {{if .Project.Tags}}
+    <div class="mb-10 flex flex-wrap gap-2">
+      {{range .Project.Tags}}
+      <span class="px-2 py-1 text-xs border border-cyber-purple/40 text-cyber-lavender/70 rounded">{{.}}</span>
+      {{end}}
+    </div>
+    {{end}}
+    <div class="flex flex-wrap gap-4">
+      {{if and .Project.GithubURL (ne .Project.GithubURL "#")}}
+      <a href="{{.Project.GithubURL}}" target="_blank" rel="noopener noreferrer" class="cyber-btn">Open Live / Source</a>
+      {{end}}
+      <a href="/projects" class="cyber-btn cyber-btn-outline">All Projects</a>
+      <a href="/contact" class="cyber-btn cyber-btn-outline">Hire Me</a>
+    </div>
+  </article>
+</main>
+{{template "partials/footer.html" .}}
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

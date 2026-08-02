@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 85%;
+    --card: 0 0% 3%;
+    --card-foreground: 270 100% 96%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 276 100% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 0 0% 3%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 330 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 276 100% 53%;
+    --input: 270 5% 10%;
+    --ring: 180 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  html {
+    @apply scroll-smooth;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10' stroke='%2300ffff' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23ff007f'/%3E%3C/svg%3E"), auto;
+  }
+
+  body {
+    @apply bg-cyber-background font-rajdhani text-cyber-text;
+    background-image:
+      linear-gradient(0deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.8) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23a020f0' fill-opacity='0.1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  button:hover {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10' stroke='%23ff007f' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%2300ffff'/%3E%3C/svg%3E"), pointer;
+  }
+}
+
+@layer components {
+  .cyber-btn {
+    @apply relative px-8 py-3 font-orbitron font-bold text-cyber-text uppercase tracking-wider border-2 flex items-center justify-center overflow-hidden transition-all duration-300 inline-flex no-underline;
+    background: linear-gradient(90deg, rgba(160,32,240,0.2) 0%, rgba(0,255,255,0.2) 100%);
+    border-image: linear-gradient(90deg, #a020f0, #00ffff) 1;
+    text-shadow: 0 0 5px #a020f0, 0 0 10px #a020f0, 0 0 15px #a020f0;
+  }
+
+  .cyber-btn::before {
+    @apply content-[""] absolute bottom-0 left-0 h-[2px] w-0 bg-cyber-cyan transition-all duration-500;
+  }
+
+  .cyber-btn::after {
+    @apply content-[""] absolute top-0 right-0 h-[2px] w-0 bg-cyber-purple transition-all duration-500;
+  }
+
+  .cyber-btn:hover::before { @apply w-full; }
+  .cyber-btn:hover::after { @apply w-full; }
+  .cyber-btn:hover {
+    @apply shadow-[0_0_15px_rgba(160,32,240,0.5)];
+    text-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 15px #ff007f;
+  }
+
+  .cyber-btn-outline {
+    background: transparent;
+    @apply border-cyber-pink;
+  }
+  .cyber-btn-outline:hover {
+    @apply shadow-[0_0_15px_rgba(255,0,127,0.5)];
+  }
+
+  .cyber-btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .cyber-heading {
+    @apply font-orbitron font-bold text-transparent bg-clip-text tracking-wider;
+    background-image: linear-gradient(90deg, #a020f0, #00ffff);
+    text-shadow: 0 0 5px rgba(160,32,240,0.5);
+  }
+
+  .cyber-card {
+    @apply relative bg-black/70 border border-cyber-purple/30 backdrop-blur-sm overflow-hidden rounded-md p-6 transition-all duration-300;
+  }
+
+  button.cyber-card {
+    @apply appearance-none text-left w-full cursor-pointer;
+    font: inherit;
+    color: inherit;
+  }
+
+  .cyber-card::before {
+    @apply content-[""] absolute inset-0 pointer-events-none;
+    background: linear-gradient(90deg, transparent 0%, rgba(160,32,240,0.1) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .cyber-card:hover::before {
+    @apply opacity-100;
+    animation: scanline 2s linear infinite;
+  }
+
+  .cyber-card:hover {
+    @apply border-cyber-cyan/70 shadow-[0_0_20px_rgba(0,255,255,0.3)];
+  }
+
+  .cyber-input {
+    @apply bg-black/50 border border-cyber-purple/30 text-cyber-text placeholder:text-cyber-lavender/30 px-4 py-2 focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-all duration-300 rounded-sm;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(rgba(160, 32, 240, 0.3) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(160, 32, 240, 0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .admin-nav-link {
+    @apply block px-3 py-2 rounded-md border border-transparent transition-all duration-200 text-cyber-lavender/70 hover:text-cyber-cyan hover:border-cyber-purple/40;
+  }
+  .admin-nav-link.is-active {
+    @apply text-cyber-cyan border-cyber-cyan/40 bg-cyber-cyan/5 shadow-[0_0_12px_rgba(0,255,255,0.15)];
+  }
+
+  .blog-prose h2 {
+    @apply font-orbitron text-2xl text-cyber-cyan mt-10 mb-4 tracking-wider;
+  }
+  .blog-prose h3 {
+    @apply font-orbitron text-xl text-cyber-purple mt-8 mb-3;
+  }
+  .blog-prose p {
+    @apply text-cyber-lavender/90 mb-4 text-lg leading-relaxed;
+  }
+  .blog-prose ul, .blog-prose ol {
+    @apply pl-6 mb-6 space-y-2 text-cyber-lavender/90;
+  }
+  .blog-prose ul { @apply list-disc; }
+  .blog-prose ol { @apply list-decimal; }
+  .blog-prose a {
+    @apply text-cyber-cyan underline underline-offset-2 hover:text-cyber-pink transition-colors;
+  }
+  .blog-prose .blog-cta {
+    @apply mt-10 flex justify-center;
+  }
+  .blog-prose .blog-cta a {
+    @apply no-underline;
+  }
+}
+
+@keyframes neon-border {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* Starfield pulse (matches React Index.tsx animate-pulse stars) */
+@keyframes cyber-star-pulse {
+  0%, 100% { opacity: var(--star-opacity, 0.5); transform: scale(1); }
+  50% { opacity: calc(var(--star-opacity, 0.5) * 0.35); transform: scale(0.85); }
+}
+
+.cyber-star {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.55);
+  animation: cyber-star-pulse var(--star-duration, 3s) ease-in-out infinite;
+  pointer-events: none;
+}

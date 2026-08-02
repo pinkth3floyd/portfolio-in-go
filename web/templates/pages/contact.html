@@ -1,0 +1,98 @@
+{{define "pages/contact.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>{{template "partials/head.html" .}}</head>
+<body class="min-h-screen flex flex-col">
+{{template "partials/stars.html" .}}
+{{template "partials/nav.html" .}}
+<main class="flex-grow pt-20 relative z-10">
+{{template "partials/breadcrumbs.html" .}}
+  <div class="container mx-auto px-4 py-16 relative">
+    <div class="absolute inset-0 grid-bg opacity-10 pointer-events-none"></div>
+    {{$intro := section .Page "intro"}}
+    <h1 class="text-4xl md:text-5xl font-orbitron text-white mb-8 relative z-10">
+      {{if $intro.Title}}{{template "partials/glitch-low.html" $intro.Title}}{{else}}{{template "partials/glitch-low.html" "Get In Touch"}}{{end}}
+    </h1>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
+      <div class="cyber-card transform hover:scale-105 transition-transform duration-300">
+        <p class="text-gray-300 mb-8 text-lg">{{if $intro.Body}}{{$intro.Body}}{{end}}</p>
+        <div class="space-y-8">
+          <div class="flex items-center group">
+            <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center mr-4 group-hover:bg-cyan-900/50 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div><p class="text-sm text-gray-400">Email</p><p class="text-cyan-400">{{setting .Settings "email"}}</p></div>
+          </div>
+          <div class="flex items-center group">
+            <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center mr-4 group-hover:bg-cyan-900/50 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div><p class="text-sm text-gray-400">Location</p><p class="text-cyan-400">{{setting .Settings "location"}}</p></div>
+          </div>
+          <div class="flex items-center group">
+            <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center mr-4 group-hover:bg-cyan-900/50 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div><p class="text-sm text-gray-400">Working Hours</p><p class="text-cyan-400">{{setting .Settings "hours"}}</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form class="cyber-card" method="POST" action="/contact"
+          hx-post="/contact" hx-target="#contact-result" hx-swap="innerHTML">
+          {{csrfField .CSRFToken}}
+          <div id="contact-result">
+            {{if .Flash}}<div class="p-4 mb-4 border border-cyber-cyan/40 text-cyber-cyan rounded">{{.Flash}}</div>{{end}}
+            {{if .FlashError}}<div class="p-4 mb-4 border border-cyber-pink/40 text-cyber-pink rounded">{{.FlashError}}</div>{{end}}
+          </div>
+          <div class="mb-6">
+            <label for="name" class="block text-gray-300 mb-2">Name</label>
+            <input type="text" id="name" name="name" required class="cyber-input w-full">
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block text-gray-300 mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="cyber-input w-full">
+          </div>
+          <div class="mb-6">
+            <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+            <input type="text" id="subject" name="subject" required class="cyber-input w-full">
+          </div>
+          <div class="mb-8">
+            <label for="message" class="block text-gray-300 mb-2">Message</label>
+            <textarea id="message" name="message" required rows="5" class="cyber-input w-full"></textarea>
+          </div>
+          <button type="submit" class="cyber-btn cyber-btn-outline w-full">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="mt-20 relative z-10 max-w-3xl" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" class="text-3xl font-orbitron text-white mb-8">
+        {{template "partials/glitch-low.html" "FAQ"}}
+      </h2>
+      <div class="space-y-4">
+        <details class="cyber-card group">
+          <summary class="font-orbitron text-cyber-cyan cursor-pointer list-none flex justify-between items-center">What services do you offer?<span class="text-cyber-lavender/40 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+          <p class="mt-4 text-cyber-lavender/80">System engineering and IT infrastructure, plus full-stack web apps (Laravel, Next.js, Go/HTMX), Flutter mobile apps, CRM/SaaS products, news portals, SEO tooling, APIs, and cloud deployment.</p>
+        </details>
+        <details class="cyber-card group">
+          <summary class="font-orbitron text-cyber-cyan cursor-pointer list-none flex justify-between items-center">Where are you based?<span class="text-cyber-lavender/40 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+          <p class="mt-4 text-cyber-lavender/80">I am based in Otori, Sakai City, Osaka, Japan, where I work as a System Engineer at AI Kensetsu Co., Ltd. I also collaborate with international clients remotely.</p>
+        </details>
+        <details class="cyber-card group">
+          <summary class="font-orbitron text-cyber-cyan cursor-pointer list-none flex justify-between items-center">Can you build products like Web Converter Tools or GOLO CRM?<span class="text-cyber-lavender/40 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+          <p class="mt-4 text-cyber-lavender/80">Yes — those are products I designed and built. Share your workflow (PDF tools, CRM, news CMS, delivery app, etc.) and I will propose a stack and milestones.</p>
+        </details>
+        <details class="cyber-card group">
+          <summary class="font-orbitron text-cyber-cyan cursor-pointer list-none flex justify-between items-center">How do I start a project?<span class="text-cyber-lavender/40 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+          <p class="mt-4 text-cyber-lavender/80">Send a short brief with goals, timeline, and budget range using the form above (or email {{setting .Settings "email"}}). I reply with scope options and next steps.</p>
+        </details>
+      </div>
+    </section>
+  </div>
+</main>
+{{template "partials/footer.html" .}}
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
+{{end}}

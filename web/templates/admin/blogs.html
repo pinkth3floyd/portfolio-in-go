@@ -1,0 +1,52 @@
+{{define "admin/blogs.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-6">Blogs</h1>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+  <div class="space-y-3">
+    {{range .Blogs}}
+    <div class="cyber-card">
+      <div class="flex justify-between gap-4">
+        <div>
+          <p class="font-orbitron text-cyber-cyan">{{.Title}}</p>
+          <p class="text-sm text-cyber-lavender/60">/blog/{{.Slug}} · {{.ViewCount}} views {{if .Published}}· published{{else}}· draft{{end}}</p>
+        </div>
+        <div class="flex gap-2 shrink-0 items-start">
+          <a href="/blog/{{.Slug}}" target="_blank" class="text-sm text-cyber-lavender/70 hover:text-cyber-cyan">View</a>
+          <a href="/admin/blogs?edit={{.ID}}" class="text-sm text-cyber-cyan hover:underline">Edit</a>
+          <form method="POST" action="/admin/blogs/{{.ID}}/delete" onsubmit="return confirm('Delete this post?')">{{csrfField $.CSRFToken}}<button class="text-sm text-cyber-pink">Delete</button></form>
+        </div>
+      </div>
+    </div>
+    {{else}}
+    <p class="text-cyber-lavender/60">No blog posts yet.</p>
+    {{end}}
+  </div>
+  <form method="POST" action="/admin/blogs" class="cyber-card space-y-3">
+    {{csrfField .CSRFToken}}
+    <h2 class="font-orbitron text-xl text-white mb-2">{{if .Blog}}Edit Post{{else}}New Post{{end}}</h2>
+    <input type="hidden" name="id" value="{{if .Blog}}{{.Blog.ID}}{{end}}">
+    <input class="cyber-input w-full" name="title" placeholder="Title" value="{{if .Blog}}{{.Blog.Title}}{{end}}" required>
+    <input class="cyber-input w-full" name="slug" placeholder="url-slug" value="{{if .Blog}}{{.Blog.Slug}}{{end}}">
+    <textarea class="cyber-input w-full" name="excerpt" rows="2" placeholder="Excerpt">{{if .Blog}}{{.Blog.Excerpt}}{{end}}</textarea>
+    <textarea class="cyber-input w-full font-mono text-sm" name="body" rows="14" placeholder="HTML body">{{if .Blog}}{{.Blog.Body}}{{end}}</textarea>
+    <input class="cyber-input w-full" name="cover_image" placeholder="Cover image URL" value="{{if .Blog}}{{.Blog.CoverImage}}{{end}}">
+    <input class="cyber-input w-full" name="meta_title" placeholder="SEO title" value="{{if .Blog}}{{.Blog.MetaTitle}}{{end}}">
+    <textarea class="cyber-input w-full" name="meta_description" rows="2" placeholder="SEO description">{{if .Blog}}{{.Blog.MetaDescription}}{{end}}</textarea>
+    <input class="cyber-input w-full" name="meta_keywords" placeholder="SEO keywords" value="{{if .Blog}}{{.Blog.MetaKeywords}}{{end}}">
+    <label class="flex items-center gap-2"><input type="checkbox" name="published" value="1" {{if or (not .Blog) (and .Blog .Blog.Published)}}checked{{end}}> Published</label>
+    <button type="submit" class="cyber-btn">Save Post</button>
+    {{if .Blog}}<a href="/admin/blogs" class="text-sm text-cyber-lavender/60 ml-4">Cancel</a>{{end}}
+  </form>
+</div>
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}

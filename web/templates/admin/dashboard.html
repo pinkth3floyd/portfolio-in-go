@@ -1,0 +1,43 @@
+{{define "admin/dashboard.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title>
+  <meta name="robots" content="noindex"><link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-2">Dashboard</h1>
+<p class="text-cyber-lavender/60 mb-8">Welcome back{{if .User}}, {{.User.Username}}{{end}}.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
+  <a href="/admin/projects" class="cyber-card hover:scale-[1.02] transition-transform block">
+    <p class="text-cyber-lavender/60 text-sm">Projects</p>
+    <p class="text-3xl font-orbitron text-white mt-2">{{.Stats.ProjectCount}}</p>
+    <p class="text-xs text-cyber-cyan mt-2">{{.Stats.PublishedCount}} published</p>
+  </a>
+  <a href="/admin/blogs" class="cyber-card hover:scale-[1.02] transition-transform block">
+    <p class="text-cyber-lavender/60 text-sm">Blogs</p>
+    <p class="text-3xl font-orbitron text-white mt-2">{{.Stats.BlogCount}}</p>
+  </a>
+  <a href="/admin/messages" class="cyber-card hover:scale-[1.02] transition-transform block">
+    <p class="text-cyber-lavender/60 text-sm">Messages</p>
+    <p class="text-3xl font-orbitron text-white mt-2">{{.Stats.MessageCount}}</p>
+  </a>
+  <a href="/" target="_blank" class="cyber-card hover:scale-[1.02] transition-transform block">
+    <p class="text-cyber-lavender/60 text-sm">Live site</p>
+    <p class="text-xl font-orbitron text-cyber-cyan mt-2">View →</p>
+  </a>
+</div>
+<div class="cyber-card max-w-2xl">
+  <h2 class="font-orbitron text-cyber-cyan mb-4">Quick links</h2>
+  <div class="flex flex-wrap gap-3 text-sm font-orbitron">
+    <a class="cyber-btn cyber-btn-sm" href="/admin/blogs">New blog post</a>
+    <a class="cyber-btn cyber-btn-sm cyber-btn-outline" href="/admin/projects">Edit projects</a>
+    <a class="cyber-btn cyber-btn-sm cyber-btn-outline" href="/admin/pages">Edit SEO</a>
+  </div>
+</div>
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}

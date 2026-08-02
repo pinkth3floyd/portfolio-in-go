@@ -1,0 +1,23 @@
+{{define "partials/pagination.html"}}
+{{if and .Pagination (gt .Pagination.TotalPages 1)}}
+<nav class="flex justify-center items-center gap-2 mt-12 relative z-10" aria-label="Pagination">
+  {{if .Pagination.HasPrev}}
+  <a href="?page={{.Pagination.PrevPage}}" class="px-4 py-2 font-orbitron text-xs border border-cyber-purple/40 text-cyber-lavender/70 hover:border-cyber-cyan hover:text-cyber-cyan transition-colors rounded">Prev</a>
+  {{else}}
+  <span class="px-4 py-2 font-orbitron text-xs border border-cyber-purple/20 text-cyber-lavender/30 rounded">Prev</span>
+  {{end}}
+  {{range .Pagination.Pages}}
+    {{if eq . $.Pagination.Page}}
+    <span class="px-3 py-2 font-orbitron text-xs border border-cyber-cyan/50 text-cyber-cyan bg-cyber-cyan/10 rounded" aria-current="page">{{.}}</span>
+    {{else}}
+    <a href="?page={{.}}" class="px-3 py-2 font-orbitron text-xs border border-cyber-purple/40 text-cyber-lavender/70 hover:border-cyber-cyan hover:text-cyber-cyan transition-colors rounded">{{.}}</a>
+    {{end}}
+  {{end}}
+  {{if .Pagination.HasNext}}
+  <a href="?page={{.Pagination.NextPage}}" class="px-4 py-2 font-orbitron text-xs border border-cyber-purple/40 text-cyber-lavender/70 hover:border-cyber-cyan hover:text-cyber-cyan transition-colors rounded">Next</a>
+  {{else}}
+  <span class="px-4 py-2 font-orbitron text-xs border border-cyber-purple/20 text-cyber-lavender/30 rounded">Next</span>
+  {{end}}
+</nav>
+{{end}}
+{{end}}

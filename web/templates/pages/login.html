@@ -1,0 +1,32 @@
+{{define "pages/login.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}}</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-cyber-background">
+  <div class="cyber-card w-full max-w-md mx-4 border-cyber-cyan/30">
+    <h1 class="font-orbitron text-2xl text-cyber-cyan mb-6 text-center">Admin Login</h1>
+    {{if .FlashError}}<div class="mb-4 p-3 border border-cyber-pink/40 text-cyber-pink text-sm">{{.FlashError}}</div>{{end}}
+    <form method="POST" action="/login" class="space-y-4">
+      {{csrfField .CSRFToken}}
+      <div>
+        <label class="block text-gray-300 mb-2" for="username">Username</label>
+        <input class="cyber-input w-full" type="text" id="username" name="username" required autocomplete="username">
+      </div>
+      <div>
+        <label class="block text-gray-300 mb-2" for="password">Password</label>
+        <input class="cyber-input w-full" type="password" id="password" name="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="cyber-btn w-full">Login</button>
+    </form>
+    <p class="mt-6 text-center text-sm text-cyber-lavender/50"><a href="/" class="hover:text-cyber-cyan">← Back to site</a></p>
+  </div>
+</body>
+</html>
+{{end}}

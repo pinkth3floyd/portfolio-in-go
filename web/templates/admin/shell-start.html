@@ -1,0 +1,32 @@
+{{define "admin/shell-start.html"}}
+<div class="flex min-h-screen">
+<aside class="w-64 border-r border-cyber-purple/30 bg-black/50 p-6 hidden md:block shrink-0">
+  <a href="/" class="font-orbitron text-lg font-bold text-cyber-purple block mb-8"><span class="animate-glow">PRAKASH</span><span class="text-cyber-cyan">NIRAULA</span></a>
+  <p class="text-[10px] uppercase tracking-[0.2em] text-cyber-lavender/40 mb-4 font-orbitron">Admin</p>
+  <nav class="space-y-1 font-orbitron text-sm tracking-wider">
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin"}}is-active{{end}}" href="/admin">Dashboard</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/pages"}}is-active{{end}}" href="/admin/pages">Pages / SEO</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/projects"}}is-active{{end}}" href="/admin/projects">Projects</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/blogs"}}is-active{{end}}" href="/admin/blogs">Blogs</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/links"}}is-active{{end}}" href="/admin/links">Links</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/experience"}}is-active{{end}}" href="/admin/experience">Experience</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/privacy"}}is-active{{end}}" href="/admin/privacy">Privacy</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/messages"}}is-active{{end}}" href="/admin/messages">Messages</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/settings"}}is-active{{end}}" href="/admin/settings">Settings</a>
+    <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/account"}}is-active{{end}}" href="/admin/account">Account</a>
+    <form method="POST" action="/logout" class="pt-6 px-3">{{csrfField .CSRFToken}}<button type="submit" class="text-cyber-pink hover:underline text-sm">Logout</button></form>
+  </nav>
+</aside>
+<div class="flex-1 p-6 md:p-10 overflow-auto">
+<div class="md:hidden mb-6 flex flex-wrap gap-2 text-xs font-orbitron">
+  <a class="admin-nav-link {{if adminActive .CurrentPath "/admin"}}is-active{{end}}" href="/admin">Dash</a>
+  <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/pages"}}is-active{{end}}" href="/admin/pages">Pages</a>
+  <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/projects"}}is-active{{end}}" href="/admin/projects">Projects</a>
+  <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/blogs"}}is-active{{end}}" href="/admin/blogs">Blogs</a>
+  <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/links"}}is-active{{end}}" href="/admin/links">Links</a>
+  <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/messages"}}is-active{{end}}" href="/admin/messages">Msgs</a>
+  <a class="admin-nav-link {{if adminActive .CurrentPath "/admin/settings"}}is-active{{end}}" href="/admin/settings">Settings</a>
+</div>
+{{if .Flash}}<div class="mb-4 p-3 border border-cyber-cyan/40 text-cyber-cyan rounded">{{.Flash}}</div>{{end}}
+{{if .FlashError}}<div class="mb-4 p-3 border border-cyber-pink/40 text-cyber-pink rounded">{{.FlashError}}</div>{{end}}
+{{end}}

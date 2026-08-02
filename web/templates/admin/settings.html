@@ -1,0 +1,39 @@
+{{define "admin/settings.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-6">Site Settings</h1>
+<form method="POST" action="/admin/settings" class="cyber-card space-y-3 max-w-2xl">
+  {{csrfField .CSRFToken}}
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">site_name</label><input class="cyber-input w-full" name="site_name" value="{{setting .Settings "site_name"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">site_url</label><input class="cyber-input w-full" name="site_url" value="{{setting .Settings "site_url"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">email</label><input class="cyber-input w-full" name="email" value="{{setting .Settings "email"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">phone</label><input class="cyber-input w-full" name="phone" value="{{setting .Settings "phone"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">location</label><input class="cyber-input w-full" name="location" value="{{setting .Settings "location"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">job_title</label><input class="cyber-input w-full" name="job_title" value="{{setting .Settings "job_title"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">company</label><input class="cyber-input w-full" name="company" value="{{setting .Settings "company"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">hours</label><input class="cyber-input w-full" name="hours" value="{{setting .Settings "hours"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">address</label><input class="cyber-input w-full" name="address" value="{{setting .Settings "address"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">github_url</label><input class="cyber-input w-full" name="github_url" value="{{setting .Settings "github_url"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">twitter_url</label><input class="cyber-input w-full" name="twitter_url" value="{{setting .Settings "twitter_url"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">linkedin_url</label><input class="cyber-input w-full" name="linkedin_url" value="{{setting .Settings "linkedin_url"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">twitter_handle</label><input class="cyber-input w-full" name="twitter_handle" value="{{setting .Settings "twitter_handle"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">ga_id</label><input class="cyber-input w-full" name="ga_id" value="{{setting .Settings "ga_id"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">ahrefs_key</label><input class="cyber-input w-full" name="ahrefs_key" value="{{setting .Settings "ahrefs_key"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">og_image</label><input class="cyber-input w-full" name="og_image" value="{{setting .Settings "og_image"}}"></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">tagline</label><textarea class="cyber-input w-full" name="tagline" rows="2">{{setting .Settings "tagline"}}</textarea></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">about_extra_1</label><textarea class="cyber-input w-full" name="about_extra_1" rows="2">{{setting .Settings "about_extra_1"}}</textarea></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">about_extra_2</label><textarea class="cyber-input w-full" name="about_extra_2" rows="2">{{setting .Settings "about_extra_2"}}</textarea></div>
+  <div><label class="block text-sm text-cyber-lavender/70 mb-1">projects_intro</label><textarea class="cyber-input w-full" name="projects_intro" rows="2">{{setting .Settings "projects_intro"}}</textarea></div>
+  <button class="cyber-btn">Save Settings</button>
+</form>
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}

@@ -1,0 +1,22 @@
+{{define "admin/account.html"}}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} | Admin</title><meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-cyber-background text-cyber-text">
+{{template "admin/shell-start.html" .}}
+<h1 class="font-orbitron text-3xl text-cyber-cyan mb-6">Account</h1>
+<p class="mb-6 text-cyber-lavender/70">Logged in as <strong class="text-white">{{if .User}}{{.User.Username}}{{end}}</strong></p>
+<form method="POST" action="/admin/account/password" class="cyber-card space-y-3 max-w-md">
+  {{csrfField .CSRFToken}}
+  <div><label class="block mb-1">Current password</label><input class="cyber-input w-full" type="password" name="current_password" required></div>
+  <div><label class="block mb-1">New password</label><input class="cyber-input w-full" type="password" name="new_password" required minlength="8"></div>
+  <button class="cyber-btn">Change Password</button>
+</form>
+{{template "admin/shell-end.html" .}}
+</body></html>
+{{end}}
